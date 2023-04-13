@@ -1,3 +1,6 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +12,7 @@ function App() {
       <div class="espaciado">
           <nav class="navbar border-bottom navbar-expand-lg">
               <div class="container">
-                  <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""/></a>
+                  <a class="navbar-brand" href="#"><img src="logo.png" alt=""/></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>

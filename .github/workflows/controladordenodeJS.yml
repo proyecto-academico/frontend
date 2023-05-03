@@ -48,6 +48,6 @@ jobs:
         run: npm install eject
       - name: Inicio de dependecias 14
         run: npm install scripts
-      
-      
-      
+      - name: detalles
+        run: npm audit
+ 

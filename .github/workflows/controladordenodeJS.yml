@@ -36,6 +36,16 @@ jobs:
         run: npm install react-scripts
       - name: Instalacion de dependecias 8
         run: npm install web-vitals
+      - name: Inicio de dependecias 9
+        run: npm install start
+      - name: Inicio de dependecias 10
+        run: npm install start
+      - name: Inicio de dependecias 11
+        run: npm install build
+      - name: Inicio de dependecias 12
+        run: npm install test
+      - name: Inicio de dependecias 13
+        run: npm install eject
       - name: Inicio de dependecias 14
         run: npm install scripts
       

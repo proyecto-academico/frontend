@@ -48,6 +48,6 @@ jobs:
         run: npm install eject
       - name: Inicio de dependecias 14
         run: npm install scripts
-      - name: detalles
+      - name: Si este proceso da error es que los problemas no fueron solucionados. Debido a que genera el error de salida 1 al no completar la prueba de calidad
         run: npm audit fix
  

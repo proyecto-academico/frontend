@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import {Fragment, useState, useEffect } from 'react';
 
 function Table() {
   const [data, setData] = useState([]);
@@ -13,28 +13,24 @@ function Table() {
 
   return (
     <Fragment>
-      {data.length > 0 ? (
         <table>
-          <thead>
-            <tr>
-              <th>Nombre Curso</th>
-              <th>Año</th>
-              <th>Ciclo Lectivo</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map(({ id, nombreCurso, anioCurso, CicloLectivo }) => (
-              <tr key={id}>
-                <td>{nombreCurso}</td>
-                <td>{anioCurso}</td>
-                <td>{CicloLectivo}</td>
-              </tr>
-            ))}
-          </tbody>
+            <thead>
+                <tr>
+                  <th>Nombre Curso</th>
+                  <th>Año</th>
+                  <th>Ciclo Lectivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data.map(item => (
+                  <tr key={item.id}>
+                    <td>{item.nombreCurso}</td>
+                    <td>{item.anioCurso}</td>
+                    <td>{item.cicloLectivo}</td>
+                  </tr>
+                ))}
+            </tbody>
         </table>
-      ) : (
-        <p>Cargando datos...</p>
-      )}
     </Fragment>
   );
 }

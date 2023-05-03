@@ -31,6 +31,9 @@ function App() {
                 </nav>
             </div>
             <FormLogin/>
+            <DocentesAlumnos/>
+            <DocentesCursos/>
+            <AlumnosCursos/>
         </div>
     );
 }

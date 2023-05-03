@@ -4,6 +4,9 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import logo from './logo.svg';
 import FormLogin from './components/FormLogin';
 import './App.css';
+import DocentesAlumnos from "./components/Docentes/DocentesAlumnos";
+import DocentesCursos from "./components/Docentes/DocentesCursos";
+import AlumnosCursos from "./components/Alumnos/AlumnosCursos";
 
 function App() {
     return (

@@ -1,11 +1,13 @@
 name: JSON checker
-
 on:
   push:
-    paths:
-      - '**.json'
+    branches:
+      -main
   pull_request:
-
+    branches:
+      -main
+  workflow_dispatch:
+  
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -49,5 +49,5 @@ jobs:
       - name: Inicio de dependecias 14
         run: npm install scripts
       - name: detalles
-        run: npm audit
+        run: npm audit fix
  

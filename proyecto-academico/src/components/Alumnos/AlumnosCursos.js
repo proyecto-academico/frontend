@@ -1,5 +1,6 @@
 import {Fragment, useState, useEffect } from 'react';
-
+import '../../index.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 function Table() {
   const [data, setData] = useState([]);
 
@@ -13,13 +14,14 @@ function Table() {
 
   return (
     <Fragment>
-      <table>
-        <thead>
+      <div className='tabla'>
+        <table class="table table-striped table-dark">
+          <thead>
           <tr>            
-            <th>Año</th>
-            <th>División</th>
-            <th>Materia</th>
-            <th>Ciclo Lectivo</th>
+            <th scope="col">Año</th>
+            <th scope="col">División</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Ciclo Lectivo</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@ function Table() {
           ))}
         </tbody>
       </table>
+      </div>
     </Fragment>
   );
 }

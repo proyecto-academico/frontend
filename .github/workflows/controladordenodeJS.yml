@@ -37,7 +37,7 @@ jobs:
       - name: Instalacion de dependecias 8
         run: npm install web-vitals
       - name: Inicio de dependecias 14
-        run: npm run eslintConfig
+        run: npm install scripts
       
       
       

@@ -14,11 +14,12 @@ const FormLogin = () => {
     }
     const enviarDatos = (event) => {
         event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así)
-        //console.log(datos.username + ' ' + datos.pwd)
-        fetch("", { // Falta la API
-            method: 'post',
-           body: datos,
-        })
+        console.log(datos.username + ' ' + datos.pwd)
+        //fetch("http://localhost:3050/test", { // Falta la API
+          //  method: 'POST',
+           // body: datos,
+        //}).then(data => data.text()).then(data => console.log(data))
+        fetch("http://localhost:3050").then(data => data.text()).then(data => console.log(data))
     }
 
     return(

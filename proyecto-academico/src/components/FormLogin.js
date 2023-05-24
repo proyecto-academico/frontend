@@ -15,13 +15,19 @@ const FormLogin = () => {
     const enviarDatos = (event) => {
         event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así)
         console.log(datos.username + ' ' + datos.pwd)
-        //fetch("http://localhost:3050/test", { // Falta la API
-          //  method: 'POST',
-           // body: datos,
-        //}).then(data => data.text()).then(data => console.log(data))
-        fetch("http://localhost:3050").then(data => data.text()).then(data => console.log(data))
+        fetch("http://10.120.2.114:3050/test", { // Falta la API
+          method: 'POST',
+            body: datos,
+        }).then(data => data.text()).then(data => console.log(data))
     }
-
+        //fetch("10.120.2.114:3050").then(data => data.text()).then(data => console.log(data))    }
+    /*if(document.getElementById("username") == DNI_Docente && document.getElementById("pwd") == Contraseña){
+        windows.location.href="Docentes/DocentesCursos.js";
+    }
+    else{
+        windows.location.href="Alumnos/AlumnosCursos.js";
+    }*/
+    
     return(
         <Fragment>
             <div class="container">
@@ -38,6 +44,7 @@ const FormLogin = () => {
                                             type="text" 
                                             class="form-control mt-1" 
                                             placeholder="Ingrese su nombre de usuario" 
+                                            id="username"
                                             name="username"
                                             onChange={handleInputChange} 
                                             required/>
@@ -47,7 +54,8 @@ const FormLogin = () => {
                                             <input 
                                             type="password" 
                                             class="form-control" 
-                                            placeholder="Ingrese su contraseña" 
+                                            placeholder="Ingrese su contraseña"
+                                            id="pwd" 
                                             name="pwd"
                                             onChange={handleInputChange} 
                                             required/>

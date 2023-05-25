@@ -5,7 +5,7 @@ function Table() {
 
   useEffect(() => {
     // Llamada a la API para obtener los datos
-    fetch('https://ejemplo-api.com/datos')
+    fetch("../data.json")
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.log(error));

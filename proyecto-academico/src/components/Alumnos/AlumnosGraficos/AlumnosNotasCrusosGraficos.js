@@ -1,8 +1,9 @@
 // Importa la biblioteca de Chart.js
 import Chart from 'chart.js';
+import { Link } from 'react-router-dom';
 
 // Obtén los datos de la API
-const notas = await fetch('https://api.example.com/notas').then(res => res.json());
+const notas = await fetch("../data.json").then(res => res.json());
 
 // Crea un contexto para el gráfico
 const ctx = document.getElementById('mi-grafico').getContext('2d');

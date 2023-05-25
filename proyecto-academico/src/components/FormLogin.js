@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import data from "../data.json";
 
 
 const FormLogin = () => {
@@ -15,18 +16,21 @@ const FormLogin = () => {
     const enviarDatos = (event) => {
         event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así)
         console.log(datos.username + ' ' + datos.pwd)
-        fetch("http://10.120.2.114:3050/test", { // Falta la API
+        fetch("../data.json", { // Falta la API
           method: 'POST',
             body: datos,
         }).then(data => data.text()).then(data => console.log(data))
+            if(datos.username == data.profesores[0].DNI_Profesor && datos.pwd == data.profesores[0].Contraseña){
+                window.location.href="Docentes/DocentesCursos.js";
+                alert("Bienvenido " + data.profesores[0].Nombre);
+            }
+            if(datos.username == data.alumnos[0].DNI_alumno && datos.pwd == data.alumnos[0].Contraseña){
+                window.location.href="Alumnos/AlumnosCursos.js";
+                alert("Bienvenido " + data.alumnos[0].Nombre);
+            }
     }
         //fetch("10.120.2.114:3050").then(data => data.text()).then(data => console.log(data))    }
-    /*if(document.getElementById("username") == DNI_Docente && document.getElementById("pwd") == Contraseña){
-        windows.location.href="Docentes/DocentesCursos.js";
-    }
-    else{
-        windows.location.href="Alumnos/AlumnosCursos.js";
-    }*/
+
     
     return(
         <Fragment>

@@ -12,6 +12,7 @@ function Table() {
       .catch(error => console.log(error));
   }, []);
 
+
   return (
     <Fragment>
       <div className='tabla'>

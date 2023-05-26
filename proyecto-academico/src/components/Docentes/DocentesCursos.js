@@ -1,5 +1,7 @@
 import {Fragment, useState, useEffect } from 'react';
-import '../../index.css'
+import '../../index.css';
+import { useParams } from 'react-router-dom';
+
 function Table() {
   const [data, setData] = useState([]);
 
@@ -10,7 +12,7 @@ function Table() {
       .then(data => setData(data))
       .catch(error => console.log(error));
   }, []);
-
+  
   return (
     <Fragment>
       <div className='tabla'>

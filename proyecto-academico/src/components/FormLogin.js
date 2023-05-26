@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import data from "../data.json";
-
+import {useParams} from 'react-router-dom';
 
 const FormLogin = () => {
     const [datos, setDatos] = useState({
@@ -21,11 +21,12 @@ const FormLogin = () => {
             body: datos,
         }).then(data => data.text()).then(data => console.log(data))
             if(datos.username == data.profesores[0].DNI_Profesor && datos.pwd == data.profesores[0].Contraseña){
-                window.location.href="Docentes/DocentesCursos.js";
+                
+                window.location.href="/DocenteCursos";
                 alert("Bienvenido " + data.profesores[0].Nombre);
             }
             if(datos.username == data.alumnos[0].DNI_alumno && datos.pwd == data.alumnos[0].Contraseña){
-                window.location.href="Alumnos/AlumnosCursos.js";
+                window.location.href="/AlumnosCursos";
                 alert("Bienvenido " + data.alumnos[0].Nombre);
             }
     }

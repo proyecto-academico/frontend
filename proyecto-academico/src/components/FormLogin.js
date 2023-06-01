@@ -20,18 +20,21 @@ const FormLogin = () => {
           method: 'POST',
             body: datos,
         }).then(data => data.text()).then(data => console.log(data))
-            if(datos.username == data.profesores[0].DNI_Profesor && datos.pwd == data.profesores[0].Contraseña){
+        for(var i=0;i<data.profesores.length;i++){
+            if(datos.username == data.profesores[i].DNI_Profesor && datos.pwd == data.profesores[i].Contraseña){
                 
                 window.location.href="/DocenteCursos";
-                alert("Bienvenido " + data.profesores[0].Nombre);
+                alert("Bienvenido " + data.profesores[i].Nombre);
             }
-            if(datos.username == data.alumnos[0].DNI_alumno && datos.pwd == data.alumnos[0].Contraseña){
+            if(datos.username == data.alumnos[i].DNI_alumno && datos.pwd == data.alumnos[i].Contraseña){
                 window.location.href="/AlumnosCursos";
-                alert("Bienvenido " + data.alumnos[0].Nombre);
-            }
+                alert("Bienvenido " + data.alumnos[i].Nombre);
+            }    
+        }    
     }
         //fetch("10.120.2.114:3050").then(data => data.text()).then(data => console.log(data))    }
 
+        
     
     return(
         <Fragment>

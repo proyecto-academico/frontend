@@ -1,21 +1,18 @@
 // Importa la biblioteca de Chart.js
-import Line from 'react-chartjs-2';
-import React, {Fragment} from 'react';
-import LinesChart from '../../../LinesChart';
+import React from 'react';
+import LinesChart from './LinesChart';
 
-function ChartNotasCursosGraficos() {
+function AlumnosNotasCursosGraficos() {
   // Obtén los datos de la API
   return(
-    <Fragment>
-      <h1>Grafico en líneas básicos</h1>
-      <div>
-        <LinesChart/>
-      </div>
-    </Fragment>
+    <div className="AlumnosNotasCursosGraficos">
+      <h1>Holaaa</h1>
+      <LinesChart/>
+    </div>
   );
 }
 
-export default ChartNotasCursosGraficos;
+export default AlumnosNotasCursosGraficos;
 /*
  // Crea un contexto para el gráfico
   const ctx = document.getElementById('mi-grafico').getContext('2d');

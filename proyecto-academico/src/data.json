@@ -24,24 +24,24 @@
     ],
     "profesores":[
         {
-            "DNI_Profesor":"21",
-            "Nombre":"Luca1",
-            "Apellido":"Abdhal1",
-            "Mail":"abdhal1@mail.com",
+            "DNI_Profesor":"46678954",
+            "Nombre":"Ives",
+            "Apellido":"Villalobos",
+            "Mail":"ivesvillalobos@gmail.com",
             "Contraseña":"1234"
         },
         {
-            "DNI_Profesor":"22",
-            "Nombre":"Luca2",
-            "Apellido":"Abdhal2",
-            "Mail":"abdhal2@mail.com",
+            "DNI_Profesor":"40764253",
+            "Nombre":"Baudilia",
+            "Apellido":"Mena",
+            "Mail":"baudiliamena@gmail.com",
             "Contraseña":"1234"
         },
         {
-            "DNI_Profesor":"23",
-            "Nombre":"Luca3",
-            "Apellido":"Abdhal3",
-            "Mail":"abdhal3@mail.com",
+            "DNI_Profesor":"11685276",
+            "Nombre":"Saba",
+            "Apellido":"Barraza",
+            "Mail":"sababarraza@gmail.com",
             "Contraseña":"1234"
         }
     ]

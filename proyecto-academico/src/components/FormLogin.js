@@ -14,13 +14,17 @@ const FormLogin = () => {
         })
     }
     const enviarDatos = (event) => {
-        event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así)
+        event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
         console.log(datos.username + ' ' + datos.pwd)
-        fetch("../data.json", { // Falta la API
+        fetch("http://10.120.2.114:3070/test", { // Falta la API
           method: 'POST',
-            body: datos,
-        }).then(data => data.text()).then(data => console.log(data))
-        for(var i=0;i<data.profesores.length;i++){
+          headers: {
+            "Content-Type": "application/json",
+            "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+            body: JSON.stringify(datos),
+        }).then(data => (data.json())).then(data => data["type"] == "Profesor" ? window.location.href="/DocenteCursos": data["type"] == "Alumno" ? window.location.href="/AlumnosCursos" : alert("Error")) //)//)
+       /* for(var i=0;i<data.profesores.length;i++){
             if(datos.username == data.profesores[i].DNI_Profesor && datos.pwd == data.profesores[i].Contraseña){
                 
                 window.location.href="/DocenteCursos";
@@ -30,7 +34,7 @@ const FormLogin = () => {
                 window.location.href="/AlumnosCursos";
                 alert("Bienvenido " + data.alumnos[i].Nombre);
             }    
-        }    
+        } */   
     }
         //fetch("10.120.2.114:3050").then(data => data.text()).then(data => console.log(data))    }
 

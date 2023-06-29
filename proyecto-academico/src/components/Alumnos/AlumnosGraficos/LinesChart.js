@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Chart, CategoryScale, LineController, LineElement, PointElement } from 'chart.js';
+import { Chart, LineController, LineElement, PointElement, LinearScale, Title,CategoryScale } from 'chart.js';
 
 const LinesChart = () => {
   const chartRef = useRef(null);
@@ -8,7 +8,7 @@ const LinesChart = () => {
     if (chartRef.current) {
       const ctx = chartRef.current.getContext('2d');
 
-      Chart.register(CategoryScale, LineController, LineElement, PointElement);
+      Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
       new Chart(ctx, {
         type: 'line',

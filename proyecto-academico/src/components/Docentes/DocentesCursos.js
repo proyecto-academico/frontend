@@ -1,42 +1,39 @@
 import {Fragment, useState, useEffect } from 'react';
-import '../../index.css';
-import { useParams } from 'react-router-dom';
+import React, { Component } from 'react';
+import '../../index.css'
+import datos from '../../data.json'
 
-function Table() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    // Llamada a la API para obtener los datos
-    fetch("../data.json")
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.log(error));
-  }, []);
-  
+const Table = () => {
   return (
-    <Fragment>
       <div className='tabla'>
         <table class="table table-striped table-dark">
           <thead>
-          <tr>            
-                  <th scope="col">Nombre Curso</th>
-                  <th scope="col">Año</th>
-                  <th scope="col">Ciclo Lectivo</th>
+              <tr>            
+                  <th scope="col">Materia</th>
+                  <th scope="col">Año y Curso</th>
+                  <th scope="col">Ciclo lectivo</th>
+                  <th scope="col">Accion</th>
                 </tr>
             </thead>
             <tbody>
-                {data.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.nombreCurso}</td>
-                    <td>{item.anioCurso}</td>
-                    <td>{item.cicloLectivo}</td>
-                  </tr>
-                ))}
+            {datos.profesores.map((alumno, index) =>{
+              const propiedades = Object.keys(alumno);
+              const valores = Object.values(alumno);
+              const valoresFiltrados = valores.slice(1,-2);
+
+              return(
+                <tr key={index}>
+                  {valoresFiltrados.map((valor, index) =>(
+                    <td key={index}>{typeof valor === "number" ? valor.toFixed(2) : valor}</td>
+                  ))}
+                  </tr>);
+            })}
             </tbody>
-        </table>
-        </div>
-    </Fragment>
+          </table>
+          </div>
   );
-}
+          };
+
+ 
 
 export default Table;

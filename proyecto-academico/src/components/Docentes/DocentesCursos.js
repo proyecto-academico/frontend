@@ -1,7 +1,14 @@
 import {Fragment, useState, useEffect } from 'react';
 import React, { Component } from 'react';
 import '../../index.css'
-import datos from '../../data.json'
+
+/* EN PROCESO FALTAN UNAS COSAS */
+
+const obtaingingdata = () => {
+ fetch("http://10.120.2.114:3070/profesor/courses",{
+  method: 'POST'
+}).then(data => (console.log(data.json())))
+}
 
 const Table = () => {
   return (
@@ -16,7 +23,18 @@ const Table = () => {
                 </tr>
             </thead>
             <tbody>
-            {datos.profesores.map((alumno, index) =>{
+            
+            </tbody>
+          </table>
+          </div>
+  );  
+  obtaingingdata();
+};
+
+ 
+
+export default Table;
+/*{datos.profesores.map((alumno, index) =>{
               const propiedades = Object.keys(alumno);
               const valores = Object.values(alumno);
               const valoresFiltrados = valores.slice(1,-2);
@@ -27,13 +45,4 @@ const Table = () => {
                     <td key={index}>{typeof valor === "number" ? valor.toFixed(2) : valor}</td>
                   ))}
                   </tr>);
-            })}
-            </tbody>
-          </table>
-          </div>
-  );
-          };
-
- 
-
-export default Table;
+            })}*/

@@ -1,56 +1,53 @@
-import {Fragment, useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import '../../index.css'
+import AlumnosData from '../Mapeo datos/AlumnosData';
+const API = "http://10.120.2.114:3070/profesor/courses";  
 
-function Table() {
-  /*const [data, setData] = useState([]);
-
-  useEffect(() => {
-    // Llamada a la API para obtener los datos
-    fetch("../data.json")
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.log(error));
-  }, []);*/
-
-  const enviarDatosProfesores = (event) => {
+const TableDA = () => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
-    fetch("http://10.120.2.114:3070/alumno/courses", { // Falta la API
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-        body: JSON.stringify(datos),
-    }).then(data => (data.json())).then(data => console.log(data))
-  }
+    
+    const [courses, setCourses] = useState([]);
 
-  enviarDatosAlumnos();
+    const fetchUsers = async (url) => {
+      try{
+        const res = await fetch(url, { // Falta la API
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+            //body: JSON.stringify(datos),
+          });
+        const data = await res.json();
+        console.log(data);
+        if(data.length >= 0){
+          setCourses(data);
+        }
+        console.log(data);
+      
+      }catch(e){
+        console.error(e)
+      }
 
-  return (
-    <Fragment>
-      <div className='tabla'>
-        <table class="table table-striped table-dark">
-          <thead>
-          <tr>            
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Nota</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.nombre}</td>
-                    <td>{item.apellido}</td>
-                    <td>{item.nota}</td>
-                  </tr>
-                ))}
-            </tbody>
-        </table>
-        </div>
-    </Fragment>
-  );
+    }
+
+    useEffect(() => {
+      fetchUsers(API);
+    }, [])
+    return <>
+      <table>
+        <thead>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Nota</th>
+          <th>Accion</th>
+        </thead>
+        <tbody>
+          <AlumnosData courses={courses}/>
+        </tbody>
+      </table>
+    </>
 }
 
-export default Table;
+export default TableDA

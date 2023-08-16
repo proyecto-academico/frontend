@@ -1,48 +1,54 @@
-import {Fragment, useState, useEffect } from 'react';
-import React, { Component } from 'react';
+import {useEffect, useState} from 'react';
 import '../../index.css'
+import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
+const API = "http://10.120.2.114:3070/profesor/courses";  
 
-/* EN PROCESO FALTAN UNAS COSAS */
+const TableDC = () => {
+    //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
+    //console.log(datos.username + ' ' + datos.pwd)
+    
+    const [courses, setCourses] = useState([]);
 
-const obtaingingdata = () => {
- fetch("http://10.120.2.114:3070/profesor/courses",{
-  method: 'POST'
-}).then(data => (console.log(data.json())))
-}
+    const fetchUsers = async (url) => {
+      try{
+        const res = await fetch(url, { // Falta la API
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+            //body: JSON.stringify(datos),
+          });
+        const data = await res.json();
+        console.log(data);
+        if(data.length >= 0){
+          setCourses(data);
+        }
+        console.log(data);
+      
+      }catch(e){
+        console.error(e)
+      }
 
-const Table = () => {
-  return (
-      <div className='tabla'>
-        <table class="table table-striped table-dark">
-          <thead>
-              <tr>            
-                  <th scope="col">Materia</th>
-                  <th scope="col">Año y Curso</th>
-                  <th scope="col">Ciclo lectivo</th>
-                  <th scope="col">Accion</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-            </tbody>
-          </table>
-          </div>
-  );  
-  obtaingingdata();
-};
+    }
 
- 
+    useEffect(() => {
+      fetchUsers(API);
+    }, [])
+    return <>
+      <table>
+        <thead>
+          <th>Materia</th>
+          <th>Año Escolar</th>
+          <th>Division Escolar</th>
+          <th>Accion</th>
+        </thead>
+        <tbody>
+          <DocentesCursosDataData courses={courses}/>
+        </tbody>
+      </table>
+    </>
 
-export default Table;
-/*{datos.profesores.map((alumno, index) =>{
-              const propiedades = Object.keys(alumno);
-              const valores = Object.values(alumno);
-              const valoresFiltrados = valores.slice(1,-2);
+  }
 
-              return(
-                <tr key={index}>
-                  {valoresFiltrados.map((valor, index) =>(
-                    <td key={index}>{typeof valor === "number" ? valor.toFixed(2) : valor}</td>
-                  ))}
-                  </tr>);
-            })}*/
+export default TableDC

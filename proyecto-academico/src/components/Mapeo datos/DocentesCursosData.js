@@ -5,9 +5,10 @@ const DocentesCursosData = ({courses}) =>{
             {
                 courses.map((curCourses) => {
                     
-                    const Nombre = curCourses.Materia.Nombre;
-                    const Ano_Escolar = curCourses.Division.Ano_Escolar;
-                    const Division_Escolar = curCourses.Division.Division_Escolar;
+                    const Nombre = curCourses.Materia;
+                    const Ano_Escolar = curCourses.Ano_Escolar;
+                    const Division_Escolar = curCourses.Division_Escolar;
+                    const ano_actual = curCourses.ano_actual;
                     console.log(curCourses);
 
                     return(
@@ -15,6 +16,7 @@ const DocentesCursosData = ({courses}) =>{
                             <td>{Nombre}</td>
                             <td>{Ano_Escolar}</td>
                             <td>{Division_Escolar}</td>
+                            <td></td>
                         </tr>
                     )
                 })

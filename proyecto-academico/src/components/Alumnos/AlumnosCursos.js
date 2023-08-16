@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import '../../index.css'
 import AlumnosData from '../Mapeo datos/AlumnosData';
-const API = "http://10.120.2.114:3070/profesor/courses";  
+const API = "http://10.120.2.114:3070/student/courses";  
 
 const Table = () => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
@@ -41,6 +41,7 @@ const Table = () => {
           <th>Materia</th>
           <th>Año Escolar</th>
           <th>Division Escolar</th>
+          <th>Accion</th>
         </thead>
         <tbody>
           <AlumnosData courses={courses}/>

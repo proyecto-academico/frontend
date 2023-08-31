@@ -1,15 +1,18 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import {useEffect, useState} from 'react';
 import '../../index.css'
 import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
-const API = "http://10.120.2.114:3070/profesor/courses";  
+import SelectAños from './DocentesAños';
+const API = "http://10.120.2.114:3070/profesor/years/courses";  
 
-const TableDC = () => {
+const TableDC = (year) => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
     
     const [courses, setCourses] = useState([]);
 
-    const fetchUsers = async (url) => {
+    const fetchUsers = async (url,year) => {
       try{
         const res = await fetch(url, { // Falta la API
           method: 'POST',
@@ -17,10 +20,12 @@ const TableDC = () => {
             "Content-Type": "application/json",
             "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
           },
-            //body: JSON.stringify(datos),
+            body: JSON.stringify(year),
           });
-        const data = await res.json();
+        console.log(JSON.stringify(year))
+          const data = await res.json();
         console.log(data);
+        
         if(data.length >= 0){
           setCourses(data);
         }
@@ -33,20 +38,27 @@ const TableDC = () => {
     }
 
     useEffect(() => {
-      fetchUsers(API);
+    //  var year = document.getElementById("select_anos").value;
+      fetchUsers(API,year);
     }, [])
     return <>
-      <table>
-        <thead>
-          <th>Materia</th>
-          <th>Año Escolar</th>
-          <th>Division Escolar</th>
-          <th>Accion</th>
+      <div className='tabla'>
+      <h1>Cursos</h1>
+      <SelectAños/>
+      <table className='table table-striped'>
+        <thead className='thead'>
+          <tr>
+          <th scope='col'>Materia</th>
+          <th scope='col'>Año Escolar</th>
+          <th scope='col'>Division Escolar</th>
+          <th scope='col'>Accion</th>
+          </tr>
         </thead>
         <tbody>
           <DocentesCursosDataData courses={courses}/>
         </tbody>
       </table>
+      </div>
     </>
 
   }

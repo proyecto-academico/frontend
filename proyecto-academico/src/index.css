@@ -14,5 +14,9 @@ code {
 
 .tabla{
   margin: 25px;
-  font-family: 'arial'
+  font-family: 'arial';
+  text-align: center;
+}
+thead{
+  background-color: #a1e2c1b0;
 }

@@ -40,6 +40,8 @@ const TableDA = () => {
         <thead>
           <th>Nombre</th>
           <th>Apellido</th>
+          <th>Año Escolar</th>
+          <th>Curso</th>
           <th>Nota</th>
           <th>Accion</th>
         </thead>

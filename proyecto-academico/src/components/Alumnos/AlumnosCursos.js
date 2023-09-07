@@ -3,6 +3,7 @@ import '../../index.css'
 import AlumnosData from '../Mapeo datos/AlumnosData';
 const API = "http://10.120.2.114:3070/student/courses";  
 
+
 const Table = () => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
@@ -36,13 +37,16 @@ const Table = () => {
       fetchUsers(API);
     }, [])
     return <>
-      <table>
-        <thead>
+      <table className='tablacursosalumnos table table-striped'>
+        <thead className='thead'>
+          <tr>
           <th>Materia</th>
           <th>Año Escolar</th>
           <th>Division Escolar</th>
+          <th>Año</th>
           <th>Accion</th>
-        </thead>
+          </tr>
+          </thead>
         <tbody>
           <AlumnosData courses={courses}/>
         </tbody>

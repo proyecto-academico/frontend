@@ -6,7 +6,7 @@ import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
 import SelectAños from './DocentesAños';
 const API = "http://10.120.2.114:3070/profesor/years/courses";  
 
-const TableDC = (year) => {
+const TableDC = ({year}) => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
     
@@ -42,9 +42,6 @@ const TableDC = (year) => {
       fetchUsers(API,year);
     }, [])
     return <>
-      <div className='tabla'>
-      <h1>Cursos</h1>
-      <SelectAños/>
       <table className='table table-striped'>
         <thead className='thead'>
           <tr>
@@ -55,10 +52,10 @@ const TableDC = (year) => {
           </tr>
         </thead>
         <tbody>
-          <DocentesCursosDataData courses={courses}/>
+        <DocentesCursosDataData courses={courses}/>
         </tbody>
       </table>
-      </div>
+
     </>
 
   }

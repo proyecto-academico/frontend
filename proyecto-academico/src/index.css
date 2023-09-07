@@ -12,11 +12,11 @@ code {
     monospace;
 }
 
-.tabla{
-  margin: 25px;
+table{
+  margin-top: 50px;
   font-family: 'arial';
   text-align: center;
 }
 thead{
-  background-color: #a1e2c1b0;
+  background-color: #98d8b8b0;
 }

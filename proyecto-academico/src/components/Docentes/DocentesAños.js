@@ -1,21 +1,27 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
 import DocentesAñosData from '../Mapeo datos/DocentesAñosData';
+import DocentesCursos from './DocentesCursos';
 import '../../index.css';
 import TableDC from './DocentesCursos';
+import { json } from 'react-router-dom';
 const API = "http://10.120.2.114:3070/profesor/years";  
 
 
-const TablaAños = () => {
+const TablaAños = (search_year) => {
     const [years, setYears] = useState([]);
 
     const fetchYears = async (url) => {
+     
       try{
         const rest = await fetch(url, {
           method: "POST",
           headers:{
             "Content-Type": "application/json",
             "datatype":"JSON"
+            
           },
+          
+          
         });
         const dataYear = await rest.json();
         console.log(dataYear);
@@ -35,9 +41,13 @@ const TablaAños = () => {
 
     }, [])
     return <>
+    <div className='tabla'>
+      <h1>Cursos</h1>
         <select id="select_anos">
           <DocentesAñosData years={years}/>
         </select>
+        <DocentesCursos search_year={document.getElementById("select_anos").value} />
+        </div>
     </>
 }
 

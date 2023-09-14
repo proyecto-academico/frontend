@@ -43,10 +43,10 @@ const TablaAños = (search_year) => {
     return <>
     <div className='tabla'>
       <h1>Cursos</h1>
-        <select id="select_anos">
+        <>
           <DocentesAñosData years={years}/>
         </select>
-        <DocentesCursos search_year={document.getElementById("select_anos").value} />
+        <DocentesCursos year={document.getElementById("select_anos").value} />
         </div>
     </>
 }

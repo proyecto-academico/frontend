@@ -6,13 +6,13 @@ import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
 import SelectAños from './DocentesAños';
 const API = "http://10.120.2.114:3070/profesor/years/courses";  
 
-const TableDC = ({year}) => {
+const TableDC = () => {
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
     
     const [courses, setCourses] = useState([]);
 
-    const fetchUsers = async (url,year) => {
+    const fetchUsers = async (url) => {
       try{
         const res = await fetch(url, { // Falta la API
           method: 'POST',
@@ -20,9 +20,9 @@ const TableDC = ({year}) => {
             "Content-Type": "application/json",
             "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
           },
-            body: JSON.stringify(year),
+            //body: JSON.stringify(year),
           });
-        console.log(JSON.stringify(year))
+        //console.log(JSON.stringify(year))
           const data = await res.json();
         console.log(data);
         
@@ -39,9 +39,20 @@ const TableDC = ({year}) => {
 
     useEffect(() => {
     //  var year = document.getElementById("select_anos").value;
-      fetchUsers(API,year);
+      fetchUsers(API);
     }, [])
     return <>
+    <details>
+      <DocentesCursosDataData courses={courses}/>
+    </details>
+    
+    </>
+
+  }
+
+export default TableDC
+
+/* Tabla
       <table className='table table-striped'>
         <thead className='thead'>
           <tr>
@@ -55,9 +66,4 @@ const TableDC = ({year}) => {
         <DocentesCursosDataData courses={courses}/>
         </tbody>
       </table>
-
-    </>
-
-  }
-
-export default TableDC
+*/

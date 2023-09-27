@@ -1,34 +1,24 @@
-import { forEach } from "lodash"
+import React, { useState, useEffect } from "react";
 
-const DocentesCursosData = ({courses}) =>{
 
-    return(
-        <>
-            {
-                courses.map((curCourses) => {
+const DocentesCursosData = () =>{
+   
+    useEffect(() => {
+        traerDatos();
+    },[])
 
-                    var a;
-                    curCourses.forEach((info) => a = info);
-                    for(var i=0;i<curCourses.length;i++){
-                        const Ciclo_Lectivo = courses[i];
-                        const Nombre = curCourses.Materia[i];
-                    }
 
-                    /*const Nombre = curCourses.Materia.Nombre;
-                    const Ano_Escolar = curCourses.Division.Ano_Escolar;
-                    const Division_Escolar = curCourses.Division.Division_Escolar;
-                    const ano_actual = curCourses.Fecha_Comienzo;
-                    console.log(curCourses);*/
+    const traerDatos = async () => {
+        const url = "http://10.120.2.114:3070/profesor/years/courses";
+        const response = await fetch(url, {method: "POST",});
+        const data = await response.json();
+        console.log(data)
+    };
 
-                    return(
-                        <>
-                        <summary>{a}</summary>
-                        </>
-                    )
-                })
-            }
-        </>
-    )
+  return(
+    <>
 
+    </>
+  )
 }
-export default DocentesCursosData
+export default DocentesCursosData;

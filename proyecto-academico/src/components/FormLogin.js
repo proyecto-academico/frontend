@@ -42,19 +42,19 @@ const FormLogin = () => {
     
     return(
         <Fragment>
-            <div class="container">
-                <div class="espaciado-def row justify-content-center">
-                    <div class="espaciado-login p-4 rounded">
-                        <div class="">
-                            <h2 class="text-center">Iniciar sesión</h2>
-                            <div class="form rounded shadow p-3">
+            <div className="container">
+                <div className="espaciado-def row justify-content-center">
+                    <div className="espaciado-login p-4 rounded">
+                        <div className="">
+                            <h2 className="text-center">Iniciar sesión</h2>
+                            <div className="form rounded shadow p-3">
                                 <form method="POST" action="" onSubmit={enviarDatos}>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                         <div>
                                             <label for="username"><b>Usuario</b></label>
                                             <input 
                                             type="text" 
-                                            class="form-control mt-1" 
+                                            className="form-control mt-1" 
                                             placeholder="Ingrese su nombre de usuario" 
                                             id="username"
                                             name="username"
@@ -62,17 +62,17 @@ const FormLogin = () => {
                                             required/>
                                         </div>
                                         <div>
-                                            <label for="pwd" class="mt-1"><b>Contraseña</b></label>
+                                            <label for="pwd" className="mt-1"><b>Contraseña</b></label>
                                             <input 
                                             type="password" 
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Ingrese su contraseña"
                                             id="pwd" 
                                             name="pwd"
                                             onChange={handleInputChange} 
                                             required/>
                                         </div>
-                                        <button type="submit" value="submit" class="btn btn-success mt-3 w-100">Ingresar</button>
+                                        <button type="submit" value="submit" className="btn btn-success mt-3 w-100">Ingresar</button>
                                     </div>
                                 </form>
                             </div>

@@ -6,9 +6,7 @@ import DataTable from "react-data-table-component";
 import '../../index.css'
 import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
 import SelectAños from './DocentesAños';
-const API = "http://10.120.2.114:3070/profesor/years/courses";  
-
-const data = [
+/* Ejemplo estático
   {
     id: 1,
     name: "Lucas",
@@ -39,10 +37,13 @@ const columns = [
     name: 'AGE',
     selector: row => row.age
   }
-]
+]*/
 
 
-function TableDC() {
+
+const TableDC = () => {
+  //const API = "http://10.120.2.114:3070/profesor/years/courses";  
+
     //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
     //console.log(datos.username + ' ' + datos.pwd)
     /*
@@ -117,13 +118,55 @@ function TableDC() {
     </>
 
   }*/
+//Configuración de los hooks
+const [course, setCourse] = useState( [] )
+
+//Mostrar los datos con el fetch
+const URL = 'http://10.120.2.114:3070/profesor/years/courses'
+const showData = async () => {
+  const response = await fetch(URL,
+    {
+      method: "post"
+    })
+  console.log(response)
+  const data = await response.json()
+  console.log(data)
+  setCourse(data)
+}
+
+useEffect( ()=> {
+  showData()
+}, [])
+
+  const columns = [
+    {
+      name: 'Materia',
+      
+      selector: row =>row.Materia
+    },
+    {
+      name: 'Año Escolar',
+      selector: row => row.Ano_Escolar
+    },
+    {
+      name: 'Division',
+      selector: row => row.Division
+    },
+    {
+      name: 'Ciclo lectivo',
+      selector: row => row.ano_actual
+    }
+  ]
+
   return(
-    <div className="TableDC">
+    <div>
       <h1>TEST</h1>
       <DataTable
       columns={columns}
-      data={data}
-      />
+      
+      data={course['2023']}
+      />  
+      
     </div>
   )
 

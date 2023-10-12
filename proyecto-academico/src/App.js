@@ -9,6 +9,7 @@ import DocentesAños from "./components/Docentes/DocentesAños"
 //import DocentesAlumnos from "./componentes/Docentes/DocentesAlumnos";
 import AlumnosCursos from "./components/Alumnos/AlumnosCursos";
 import AlumnosCursosGraficos from "./components/Alumnos/AlumnosGraficos/AlumnosNotasCursosGraficos";
+import AlumnosNotas from './components/Alumnos/AlumnosNotas.js';
 import Navbar from "./components/navbar";
 import React from 'react';
 import { Route, Routes, useParams} from "react-router-dom";
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/DocenteCursos' element={<DocentesCursos/>} />
                 <Route path='/DocentesAños' element={<DocentesAños/>} />
                 <Route path='/AlumnosCursos' element={<AlumnosCursos/>} />
+                <Route path='/AlumnosNotas' element={<AlumnosNotas/>} />
                 <Route path='/AlumnosCursosGraficos' element={<AlumnosCursosGraficos/>}/>
                 <Route path="*" element={<h1>Error 404</h1>}/>
             </Routes>

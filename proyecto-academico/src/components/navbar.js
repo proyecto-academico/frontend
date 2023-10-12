@@ -10,7 +10,10 @@ function App() {
         <header>
         <nav className="navbar navbar-expand-lg">
             <div className="container">
-                <a className="navbar-brand" href="#"><img src="logo.png" alt=""/>E.T.N°26 DE6 "Confederación Suiza"</a>
+                <div className="div-img">
+                    <img className="imagen-res" width="120px" src="logo.png"/>
+                <spam>E.T.N°26 DE6 "Confederación Suiza"</spam>
+                </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                 </button>

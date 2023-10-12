@@ -8,11 +8,12 @@ import {isImmutable, toJS} from 'immutable';
 import { Link } from 'react-router-dom';
 
 
-const TableAC = () => {
-  const [course, setCourse] = useState( [] )
+
+const TableAN = () => {
+  const [grade, setGrade] = useState( [] )
 
   //Mostrar los datos con el fetch
-  const URL = "http://10.120.2.114:3070/student/courses";  
+  const URL = "";  
   const showData = async () => {
     const response = await fetch(URL,
       {
@@ -20,13 +21,20 @@ const TableAC = () => {
       })
     const data = await response.json()
     console.log(data)
-    setCourse(data);
+    const courseArray = data.map(item => {
+      if (isImmutable(item)) {
+        return item.toJS();
+      } else {
+        return item;
+      }
+    });
+    setGrade(courseArray);
   }
   
   useEffect( ()=> {
     showData()
   }, [])
-    const columns = [
+    /*const columns = [
       {
         name: 'Año',
         selector: row =>row.Division.Ano_Escolar
@@ -47,20 +55,18 @@ const TableAC = () => {
         name: 'Materia',
         selector: row => row.Materia.Nombre
       }
-    ]
+    ]*/
   
-    return(
+    /*return(
       <div>
-        <h1>Cursos</h1>
+        <h1>Notas</h1>
         <DataTable
         columns={columns}
         
-        data={course}
-        /> 
-        <button> <Link to="/AlumnosNotas">Ver Notas</Link></button> 
-        
+        data={grades}
+        />         
       </div>
-    )
+    )*/
   
   
   };
@@ -86,4 +92,4 @@ const TableAC = () => {
 
  */
 
-export default TableAC;
+export default TableAN;

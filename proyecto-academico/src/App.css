@@ -41,3 +41,12 @@ body{
 background-color: rgba(7, 80, 17, 0.151);
 border-color: #72171700;
 }
+.imagen-res{
+  height: auto;
+  margin-right: 10px;
+}
+@media (max-width: 990px){
+  .imagen-res{
+    display: none;
+  }
+}

@@ -3,9 +3,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import {useEffect, useState} from 'react';
 import Table from "react-table";
 import DataTable from "react-data-table-component";
-import '../../index.css'
-import DocentesCursosDataData from '../Mapeo datos/DocentesCursosData';
-import SelectAños from './DocentesAños';
+import '../../index.css';
 /* Ejemplo estático
   {
     id: 1,
@@ -42,82 +40,6 @@ const columns = [
 
 
 const TableDC = () => {
-  //const API = "http://10.120.2.114:3070/profesor/years/courses";  
-
-    //event.preventDefault(); // Cancela el direccionamiento a la API (una cosa así) evita que vaya directo a la pagina, como un redireccionamiento y previene que haha eso
-    //console.log(datos.username + ' ' + datos.pwd)
-    /*
-    const [courses, setCourses] = useState([]);
-
-    const fetchUsers = async (url) => {
-      try{
-        const res = await fetch(url, { // Falta la API
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-            "datatype":"JSON"// 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-            //body: JSON.stringify(year),
-          });
-        //console.log(JSON.stringify(year))
-          const data = await res.json();
-        console.log(data);
-        
-        if(data.length >= 0){
-          setCourses(data);
-        }
-        console.log(data);
-      
-      }catch(e){
-        console.error(e)
-      }
-
-    }
-
-    useEffect(() => {
-    //  var year = document.getElementById("select_anos").value;
-      fetchUsers(API);
-    }, [])*/
-
-
-    /*const [courses, setCourses] = useState(0);
-
-    useEffect(() => {
-      traerDatos();
-    }, []);
-    
-    const traerDatos = async () => {
-      const data = await fetch(API, { method: "POST" });
-      const datos = await data.json();
-    
-      // Actualizar el estado `courses` una vez que la solicitud HTTP haya finalizado
-      setCourses(datos.results);
-    };
-
-    
-    const renderCourses = () => {
-      if(courses && courses.length > 0){
-        return courses.map((course) => (
-          <li key={course['2015'][0].id}>{course['2015'][0].Materia}</li>
-        ));
-      }else{
-        return <p>No hay cursos disponibles.</p>;
-      }
-
-    };
-    console.log(courses)
-
-    return <>
-    <details>
-      {console.log(courses)}
-      <summary>2023</summary>
-      Matematicas, lengua, etc
-      {renderCourses()}
-    </details>
-    
-    </>
-
-  }*/
 //Configuración de los hooks
 const [course, setCourse] = useState( [] )
 
@@ -128,7 +50,6 @@ const showData = async () => {
     {
       method: "post"
     })
-  console.log(response)
   const data = await response.json()
   console.log(data)
   setCourse(data)
@@ -137,7 +58,6 @@ const showData = async () => {
 useEffect( ()=> {
   showData()
 }, [])
-
   const columns = [
     {
       name: 'Materia',
@@ -160,11 +80,10 @@ useEffect( ()=> {
 
   return(
     <div>
-      <h1>TEST</h1>
       <DataTable
       columns={columns}
       
-      data={course['2023']}
+      data={course}
       />  
       
     </div>

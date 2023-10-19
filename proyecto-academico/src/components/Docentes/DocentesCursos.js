@@ -38,6 +38,10 @@ const columns = [
 ]*/
 
 
+/* ESTO ES UNA VISTA QUE TIENEN LOS DOCENTES DE LOS CURSOS EN LOS QUE ESTUVIERON PRESENTES 
+El profesor puede ver las notas de 
+
+*/
 
 const TableDC = () => {
 //Configuración de los hooks
@@ -75,6 +79,10 @@ useEffect( ()=> {
     {
       name: 'Ciclo lectivo',
       selector: row => row.ano_actual
+    },
+    {
+      name:'Accion',
+      selector: row => row.accion
     }
   ]
 

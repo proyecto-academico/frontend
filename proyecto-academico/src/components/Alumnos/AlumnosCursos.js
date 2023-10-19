@@ -5,8 +5,10 @@ import Table from "react-table";
 import DataTable from "react-data-table-component";
 import '../../index.css'
 import {isImmutable, toJS} from 'immutable';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
+/*Vista de los alumnos de sus cursos (Los profesores también pueden*/ 
 
 const TableAC = () => {
   const [course, setCourse] = useState( [] )
@@ -22,7 +24,7 @@ const TableAC = () => {
     console.log(data)
     setCourse(data);
   }
-  
+
   useEffect( ()=> {
     showData()
   }, [])
@@ -46,6 +48,10 @@ const TableAC = () => {
       {
         name: 'Materia',
         selector: row => row.Materia.Nombre
+      },
+      {
+        name: 'Accion',
+        selector: () => <Button label="Ver" onClick={() => console.log("Hola")} />
       }
     ]
   

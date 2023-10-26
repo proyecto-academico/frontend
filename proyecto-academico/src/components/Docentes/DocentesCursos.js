@@ -2,6 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import {useEffect, useState} from 'react';
 import Table from "react-table";
+import Button from 'react-bootstrap/Button';
+
 import DataTable from "react-data-table-component";
 import '../../index.css';
 /* Ejemplo estático
@@ -81,8 +83,8 @@ useEffect( ()=> {
       selector: row => row.ano_actual
     },
     {
-      name:'Accion',
-      selector: row => row.accion
+      name: 'Accion',
+      selector: () => <Button label="Entrar" onClick={() => console.log("Hola")}>Entrar</Button>
     }
   ]
 

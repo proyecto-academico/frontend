@@ -51,7 +51,7 @@ const TableAC = () => {
       },
       {
         name: 'Accion',
-        selector: () => <Button label="Ver" onClick={() => console.log("Hola")} />
+        selector: () => <Button label="Entrar" onClick={() => console.log("Hola")}>Ver Nota</Button>
       }
     ]
   
@@ -63,7 +63,7 @@ const TableAC = () => {
         
         data={course}
         /> 
-        <button> <Link to="/AlumnosNotas">Ver Notas</Link></button> 
+        <button> <Link to="/AlumnosFaltas">Ver Faltas</Link></button> 
         
       </div>
     )

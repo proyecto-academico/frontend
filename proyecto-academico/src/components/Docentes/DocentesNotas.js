@@ -25,7 +25,7 @@ const TableDN = () => {
         grade_definitive: 8
       },
     ]
- //"http://10.120.2.114:3070/student/courses";  
+ //"http://10.120.2.114:3070/student/courses/details";  
   /*const showData = async () => {
     const response = await fetch(URL,
       {

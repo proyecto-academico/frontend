@@ -14,7 +14,7 @@ const TableAC = () => {
   const [course, setCourse] = useState( [] )
 
   //Mostrar los datos con el fetch
-  const URL =      [
+  const URL =  [
     {
       id: 1,
       first_bimestre: 6,

@@ -3,9 +3,8 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import {useEffect, useState} from 'react';
 import Table from "react-table";
 import Button from 'react-bootstrap/Button';
-
 import DataTable from "react-data-table-component";
-import '../../index.css';
+
 /* Ejemplo estático
   {
     id: 1,
@@ -50,8 +49,22 @@ const TableDC = () => {
 const [course, setCourse] = useState( [] )
 
 //Mostrar los datos con el fetch
-const URL = 'http://10.120.2.114:3070/profesor/years/courses'
-const showData = async () => {
+//const URL = 'http://10.120.2.114:3070/profesor/years/courses'
+const URL=[
+  {
+  Materia:'matematica',
+  Ano_Escolar: '1er',
+  Division: '6to',
+  ano_actual: '2004'
+  },
+  {
+    Materia:'matematica',
+    Ano_Escolar: '1er',
+    Division: '6to',
+    ano_actual: '2004'
+    }
+]
+/*const showData = async () => {
   const response = await fetch(URL,
     {
       method: "post"
@@ -64,6 +77,7 @@ const showData = async () => {
 useEffect( ()=> {
   showData()
 }, [])
+*/
   const columns = [
     {
       name: 'Materia',
@@ -90,10 +104,11 @@ useEffect( ()=> {
 
   return(
     <div>
+      <h1>Cursos</h1>
       <DataTable
       columns={columns}
       
-      data={course}
+      data={URL}
       />  
       
     </div>

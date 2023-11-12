@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import data from "../data.json";
 import {useParams} from 'react-router-dom';
+import '../formLogin.css';
 
 const FormLogin = () => {
     const [datos, setDatos] = useState({
@@ -39,47 +40,46 @@ const FormLogin = () => {
         //fetch("10.120.2.114:3050").then(data => data.text()).then(data => console.log(data))    }
 
         
-    
     return(
         <Fragment>
-            <div className="container">
-                <div className="espaciado-def row justify-content-center">
-                    <div className="espaciado-login p-4 rounded">
-                        <div className="">
-                            <h2 className="text-center">Iniciar sesión</h2>
-                            <div className="form rounded shadow p-3">
-                                <form method="POST" action="" onSubmit={enviarDatos}>
-                                    <div className="form-group">
-                                        <div>
-                                            <label for="username"><b>Usuario</b></label>
-                                            <input 
-                                            type="text" 
-                                            className="form-control mt-1" 
-                                            placeholder="Ingrese su nombre de usuario" 
-                                            id="username"
-                                            name="username"
-                                            onChange={handleInputChange} 
-                                            required/>
-                                        </div>
-                                        <div>
-                                            <label for="pwd" className="mt-1"><b>Contraseña</b></label>
-                                            <input 
-                                            type="password" 
-                                            className="form-control" 
-                                            placeholder="Ingrese su contraseña"
-                                            id="pwd" 
-                                            name="pwd"
-                                            onChange={handleInputChange} 
-                                            required/>
-                                        </div>
-                                        <button type="submit" value="submit" className="btn btn-success mt-3 w-100">Ingresar</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+          <div className="pantalla-inicio">
+        <div className='izquierda'>
+        </div>
+        <div className='derecha'>
+          <div className="formulario">
+            <form method="POST" action="" onSubmit={enviarDatos}>
+              <h1 className="text-center">Iniciar sesión</h1>
+              <div className="form-group">
+                <label htmlFor="username"><b>Usuario*</b></label>
+                <input
+                  type="text" 
+                  className="form-control"
+                  placeholder="Usuario"
+                  id="username"
+                  name="username"
+                  onChange={handleInputChange}
+                  required
+                />
+                <br />
+                <label htmlFor="pwd"><b>Contraseña*</b></label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Contraseña"
+                  id="pwd"
+                  name="pwd"
+                  onChange={handleInputChange}
+                  required
+                />
+                <br/>
+                <div className="boton-container">
+                  <button type="submit" value="submit" className="boton">Ingresar</button>
                 </div>
-            </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
         </Fragment>
     );
 }
